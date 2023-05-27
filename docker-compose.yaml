@@ -1,34 +1,28 @@
 version: '3'
 services:
   laravel:
-    build:
-      context: .
-      dockerfile: Dockerfile
     restart: always
+    build: .
     volumes:
       - ./:/var/www/
     depends_on:
-      - postgres
+      - db
     networks:
       - backend
 
-  postgres:
+  db:
     image: postgres:12.0-alpine
     restart: always
     environment:
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: auth_login
-    volumes:
-      - .docker/dbdata:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
+      POSTGRES_DB: login
+    volumes: 
+    - "./.docker/dbdata:/var/lib/postgresql/data"
     networks:
       - backend
 
   nginx:
-    build:
-      context: .docker/nginx
-      dockerfile: Dockerfile
+    build: ./.docker/nginx
     restart: always
     ports:
       - 8000:80
@@ -41,14 +35,14 @@ services:
 
   adminer:
     image: adminer
-    restart: always
+    container_name: adminer
     ports:
       - 8080:8080
     depends_on:
-      - postgres
+      - db
     networks:
       - backend
 
 networks:
   backend:
-    driver: bridge
+    driver: default

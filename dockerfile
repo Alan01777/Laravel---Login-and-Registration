@@ -1,6 +1,10 @@
-FROM php:fpm-alpine
+FROM php:fpm
 
-RUN apk add --no-cache openssl bash nodejs php-pgsql php-pdo_pgsql npm postgresql-dev shadow
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    bash \
+    nodejs \
+    && docker-php-ext-install pdo_pgsql pgsql
 
 WORKDIR /var/www
 
@@ -8,12 +12,6 @@ RUN rm -rf /var/www/html
 RUN ln -s public html
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-RUN usermod -u 1000 www-data
-
-COPY --chown=www-data:www-data . /var/www
-
-RUN chmod -R 777 /var/www/storage
 
 EXPOSE 9000
 

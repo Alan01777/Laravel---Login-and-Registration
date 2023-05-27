@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Registration')
+@section('title', 'login')
 
 @section('content')
     <div style="height: 100px;"></div>

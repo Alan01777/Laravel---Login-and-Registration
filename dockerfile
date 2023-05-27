@@ -2,7 +2,6 @@ FROM php:fpm-alpine
 
 RUN apk add --no-cache openssl bash nodejs php-pgsql php-pdo_pgsql npm postgresql-dev shadow
 
-
 WORKDIR /var/www
 
 RUN rm -rf /var/www/html

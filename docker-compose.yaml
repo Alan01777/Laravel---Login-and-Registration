@@ -11,7 +11,7 @@ services:
       - backend
 
   db:
-    image: postgres:15.3-alpine
+    image: postgres:12-alpine
     restart: always
     environment:
       POSTGRES_PASSWORD: postgres

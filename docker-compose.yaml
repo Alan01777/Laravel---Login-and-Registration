@@ -45,4 +45,4 @@ services:
 
 networks:
   backend:
-    driver: default
+    driver: bridge

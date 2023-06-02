@@ -4,7 +4,7 @@
 ```https://github.com/Alan01777/Laravel---Login-and-Registration.git```
 
 ## Navegando até a pasta:
-```cd cd Laravel---Login-and-Registration/```
+```cd Laravel---Login-and-Registration/```
 
 ## Subindo os containers:
 ``` docker compose up -d --build```

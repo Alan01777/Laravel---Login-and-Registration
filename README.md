@@ -1,7 +1,7 @@
 # Exemplo de Aplicação usando Laravel 
 
 ## Clonando o repositório:
-```https://github.com/Alan01777/Laravel---Login-and-Registration.git```
+```git clone https://github.com/Alan01777/Laravel---Login-and-Registration.git```
 
 ## Navegando até a pasta:
 ```cd Laravel---Login-and-Registration/```
